@@ -7,4 +7,13 @@ gem "foreman"
 
 group :development do
   gem "pry"
+  gem "rubocop", require: false
+  gem "rubocop-rspec"
+  gem "guard-rspec", require: false
+end
+
+gem "dotenv", groups: %i(development test)
+
+group :test do
+  gem "rspec"
 end

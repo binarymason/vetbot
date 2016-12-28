@@ -29,3 +29,4 @@ module VetBot
 end
 
 require_relative "vetbot/hooks"
+require_relative "vetbot/resources"

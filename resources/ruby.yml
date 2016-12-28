@@ -1,0 +1,12 @@
+Books:
+  - author: Michael Hartl
+    name: Ruby on Rails Tutorial
+    link: https://www.railstutorial.org/book
+
+  - author: Chris Pine
+    link: https://pine.fm/LearnToProgram/chap_00.html
+    name: Learn to Program
+
+  - author: Zed Shaw
+    link: https://learnrubythehardway.org/book
+    name: Learn Ruby the Hard Way
