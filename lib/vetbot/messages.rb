@@ -37,6 +37,8 @@ module VetBot
         VetBot.formatted_resources "ruby"
       when /hi|hello|hey/i then
         "Hi <@#{data.user}>!"
+      when /thank/i then
+        "You're welcome :+1:"
       else
         idk_response
       end
