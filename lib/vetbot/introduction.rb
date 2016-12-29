@@ -1,7 +1,7 @@
 module VetBot
   class << self
     def handle_team_join(data)
-      user_id = data&.user&.id
+      user_id = data.dig("user", "id")
       channel = open_direct_message_with_user(user_id: user_id)
       return unless channel
 
