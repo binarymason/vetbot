@@ -1,1 +1,1 @@
-bot: bundle exec bin/start_vetbot
+web: bundle exec puma -p $PORT
