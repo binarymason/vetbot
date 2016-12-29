@@ -20,7 +20,7 @@ module VetBot
     end
 
     def from_vetbot?(data)
-      client.users[data.user]&.id == VetBot.id
+      client.users&.dig(data.user, "id") == VetBot.id
     end
 
     def direct_message?(channel:)
