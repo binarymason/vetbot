@@ -1,7 +1,7 @@
 module VetBot
   class << self
     def handle_message(data)
-      puts data
+      puts data unless ENV["RACK_ENV"] == "test"
 
       return unless spoken_to?(data)
 
