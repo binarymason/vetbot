@@ -1,5 +1,11 @@
 {
   "name": "VetBot",
   "description": "Slack bot that gives helpful programming resources",
-  "logo": "https://github.com/binarymason/vetbot/raw/master/assets/vetbot.png"
+  "logo": "https://github.com/binarymason/vetbot/raw/master/assets/vetbot.png",
+  "env": {
+    "SLACK_API_TOKEN": {
+      "description": "API token generated from slack",
+      "required": true
+    }
+  }
 }
