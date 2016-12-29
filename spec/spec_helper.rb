@@ -1,7 +1,7 @@
 require "dotenv"
 Dotenv.load
 
-require "vetbot"
+require_relative "../initialize"
 
 ENV["RACK_ENV"] = "test"
 

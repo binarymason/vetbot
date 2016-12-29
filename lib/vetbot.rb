@@ -41,5 +41,5 @@ module VetBot
   end
 end
 
-require_relative "vetbot/resources"
-require_relative "vetbot/hooks"
+require "vetbot/resources"
+require "vetbot/hooks"

@@ -1,2 +1,2 @@
-require_relative "hooks/message"
-require_relative "hooks/team_join"
+require "vetbot/hooks/message"
+require "vetbot/hooks/team_join"
