@@ -25,8 +25,21 @@ module VetBot
     def typing(opts = {})
       client.typing(opts)
     end
+
+    def id
+      @id ||= begin
+                response = web_client.users_info(user: "@vetbot")
+                response.dig("user", "id")
+              end
+    end
+
+    private
+
+    def web_client
+      client.web_client
+    end
   end
 end
 
-require_relative "vetbot/hooks"
 require_relative "vetbot/resources"
+require_relative "vetbot/hooks"
