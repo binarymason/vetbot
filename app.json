@@ -1,4 +1,5 @@
 {
   "name": "VetBot",
   "description": "Slack bot that gives helpful programming resources",
+  "logo": "https://github.com/binarymason/vetbot/raw/master/assets/vetbot.png"
 }
