@@ -27,7 +27,7 @@ module VetBot
 
     def select_response(data)
       case data.text
-      when /ruby/i then
+      when /ruby|rails/i then
         VetBot.formatted_resources "ruby"
       when /hi|hello|hey/i then
         "Hi <@#{data.user}>!"
