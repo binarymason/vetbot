@@ -13,12 +13,14 @@ module VetBot
 
     private
 
+    # Returns true if VetBot is @mentioned or in a direct message.
     def spoken_to?(data)
       return false if from_vetbot?(data)
 
       data.text&.match(VetBot.id) || direct_message?(channel: data.channel)
     end
 
+    # Returns true if VetBot is the author of a message.
     def from_vetbot?(data)
       client.users&.dig(data.user, "id") == VetBot.id
     end
@@ -27,6 +29,7 @@ module VetBot
       direct_messages.include? channel
     end
 
+    # Returns array of channel ids.
     def direct_messages
       client.ims&.keys || []
     end
@@ -51,6 +54,7 @@ module VetBot
         "so a human can assist."
     end
 
+    # Returns a hash of channels that is publicly available to VetBot.
     def channels
       client.channels
     end

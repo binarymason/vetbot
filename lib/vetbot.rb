@@ -1,14 +1,10 @@
 require "slack-ruby-client"
 
-SLACK_API_TOKEN = ENV.fetch("SLACK_API_TOKEN")
-
 # Singleton wrapper for any Slack Client methods used.
 # Useful for portability reasons.
 module VetBot
   class << self
-    def client
-      @client ||= Slack::RealTime::Client.new(token: SLACK_API_TOKEN)
-    end
+    SLACK_API_TOKEN = ENV.fetch("SLACK_API_TOKEN")
 
     def message(opts = {})
       client.message(opts)
@@ -35,11 +31,20 @@ module VetBot
 
     private
 
+    # Only expose an interface that we own.
+    # Any client methods that are needed should be wrapped in a public method.
+    def client
+      @client ||= Slack::RealTime::Client.new(token: SLACK_API_TOKEN)
+    end
+
+    # Web Client is useful for methods that are not supported
+    # in Slack's Real Time Messaging API.
     def web_client
       client.web_client
     end
   end
 end
 
+# Require additional functionality after VetBot is defined.
 require "vetbot/resources"
 require "vetbot/hooks"
