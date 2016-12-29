@@ -1,6 +1,3 @@
-require "dotenv"
-Dotenv.load
-
 require_relative "../initialize"
 
 ENV["RACK_ENV"] = "test"
