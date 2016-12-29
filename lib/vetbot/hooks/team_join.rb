@@ -1,3 +1,5 @@
+require "vetbot/introduction"
+
 VetBot.on :team_join do |data|
-  VetBot.message channel: data.channel, text: "Hi <@#{data.user}>!"
+  VetBot.handle_team_join(data)
 end

@@ -14,7 +14,13 @@ module VetBot
     private
 
     def spoken_to?(data)
+      return false if from_vetbot?(data)
+
       data.text&.match(VetBot.id) || direct_message?(channel: data.channel)
+    end
+
+    def from_vetbot?(data)
+      client.users[data.user]&.id == VetBot.id
     end
 
     def direct_message?(channel:)
