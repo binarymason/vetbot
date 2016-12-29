@@ -14,7 +14,7 @@ module VetBot
     private
 
     def spoken_to?(data)
-      data.text.match(VetBot.id) || direct_message?(channel: data.channel)
+      data.text&.match(VetBot.id) || direct_message?(channel: data.channel)
     end
 
     def direct_message?(channel:)
@@ -27,11 +27,33 @@ module VetBot
 
     def select_response(data)
       case data.text
-      when /hi|hello|hey/ then
+      when /ruby/i then
+        VetBot.formatted_resources "ruby"
+      when /hi|hello|hey/i then
         "Hi <@#{data.user}>!"
       else
-        "Sorry, I'm not smart enough yet"
+        idk_response
       end
+    end
+
+    def idk_response
+      "Sorry, I'm not smart enough yet to answer that. " \
+        "Maybe post in the <##{channel('general')}|general> " \
+        "or <##{channel('web-dev')}|web-dev> channel " \
+        "so a human can assist."
+    end
+
+    def channels
+      client.channels
+    end
+
+    # Returns a channel id.  Returns nil if channel doesn't exist.
+    def channel(name)
+      obj = channels.select do |_k, hsh|
+        hsh["name"].to_s.casecmp(name.to_s).zero?
+      end
+
+      obj&.keys&.first
     end
   end
 end
